@@ -3,76 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Array Merger</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .box {
-      background: white;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      border-radius: 12px;
-      width: 320px;
-      text-align: center;
-    }
-    input {
-      width: 90%;
-      padding: 8px;
-      margin: 8px 0;
-    }
-    button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      background: #4CAF50;
-      border: none;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #result {
-      margin-top: 20px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-  </style>
+  <title>Merge Sorted Linked Lists</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="box">
-    <h2>🔗 Merge Sorted Arrays</h2>
-    <input type="text" id="arr1" placeholder="Enter first sorted array, e.g. 1,3,5" />
-    <input type="text" id="arr2" placeholder="Enter second sorted array, e.g. 2,4,6" />
-    <button onclick="mergeArrays()">Merge</button>
-    <div id="result"></div>
+  <div class="container">
+    <h1>🔗 Merge Two Sorted Lists</h1>
+    <p>Enter sorted arrays (comma separated):</p>
+    
+    <input type="text" id="list1" placeholder="e.g., 1,3,5" />
+    <input type="text" id="list2" placeholder="e.g., 2,4,6" />
+    <button onclick="mergeLists()">Merge</button>
+    
+    <h2>Merged List:</h2>
+    <div id="output"></div>
+
+    <p><strong>Logic Source:</strong> <a href="merge.cpp" target="_blank">View C++ Code</a></p>
   </div>
 
-  <script>
-    function mergeArrays() {
-      let arr1 = document.getElementById('arr1').value.trim().split(',').map(Number);
-      let arr2 = document.getElementById('arr2').value.trim().split(',').map(Number);
-      
-      if (arr1.some(isNaN) || arr2.some(isNaN)) {
-        document.getElementById('result').innerText = "⚠️ Please enter valid numbers.";
-        return;
-      }
-
-      let merged = [], i = 0, j = 0;
-      while (i < arr1.length && j < arr2.length) {
-        if (arr1[i] < arr2[j]) merged.push(arr1[i++]);
-        else merged.push(arr2[j++]);
-      }
-
-      while (i < arr1.length) merged.push(arr1[i++]);
-      while (j < arr2.length) merged.push(arr2[j++]);
-
-      document.getElementById('result').innerText = "✅ Merged: " + merged.join(', ');
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
